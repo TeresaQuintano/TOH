@@ -1,0 +1,17 @@
+.pointer {
+  cursor: pointer;
+}
+.item-list {
+  padding: 8px 4px;
+  font-size: 17px;
+  &:not(:last-of-type){
+    border-bottom: 1px solid #ddd;
+  }
+  &:hover {
+    background-color: #fafafa;
+  }
+  &.selected {
+    background-color: #eeeeee;
+  }
+}
+

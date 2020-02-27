@@ -1,25 +1,35 @@
 <h2>Listado de Héroes</h2>
-<ul>
-  <li *ngFor="let hero of heroes">
+<ul class="list-unstyled">
+<!--  le pasamos la clase dinamicamente cuando se selecciona-->
+<!--  [class.selected]="hero === selectedHero"-->
+  <li *ngFor="let hero of heroes"
+      class="item-list pointer"
+      [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">
     <div>
-      <span>id: </span>{{hero.id}}
-    </div>
-    <div>
-      <span>name: </span>{{hero.name | uppercase}}
+      <span class="badge badge-secondary">{{hero.id}}</span>
+      {{hero.name}}
     </div>
   </li>
 </ul>
-
-<h2>{{hero.name}} Details</h2>
-<div>
-  <span>id: </span>{{hero.id}}
+<!--le pasamos el if porque en la carga no se ha
+creado aun el heroe seleccionado
+Esto es para mostrar los datos de un heroe de la lista en
+la misma página
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}} Details</h2>
+  <div>
+    <span>id: </span>{{selectedHero.id}}
+  </div>
+  <div>
+    <span>name: </span>{{selectedHero.name | uppercase}}
+  </div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name"
+             placeholder="name"/>
+    </label>
+  </div>
 </div>
-<div>
-  <span>name: </span>{{hero.name | uppercase}}
-</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="hero.name"
-           placeholder="name"/>
-  </label>
-</div>
+-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
