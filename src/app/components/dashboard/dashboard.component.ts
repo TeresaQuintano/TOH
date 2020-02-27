@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-    heroes: Hero[] = []
+    heroes: Hero[] = [];
 
     constructor(
         private heroService: HeroService

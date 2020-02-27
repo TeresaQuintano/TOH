@@ -14,17 +14,17 @@ export class HeroesComponent implements OnInit {
     // El array de heroes
     heroes: Hero[];
 
-    // El heroe que creo y que luego se lo paso con ngModel
+    // PASO 1: El heroe que creo y que luego se lo paso con ngModel
     // hero: Hero = {
     //     id: 1,
     //     name: 'Windstorm'
     // };
-    // El heroe que selecciono y que luego se lo paso con ngModel
-    selectedHero: Hero;
+    // PASO 2: El heroe que selecciono y que luego se lo paso con ngModel
+    // selectedHero: Hero;
 
     constructor(
         private heroService: HeroService,
-        public messageService: MessageService
+        // public messageService: MessageService
     ) {
     }
 
@@ -32,11 +32,11 @@ export class HeroesComponent implements OnInit {
         this.getHeroes()
     }
 
-    onSelect(hero: Hero): void {
-        // al seleccionarlo coge los datos de ese heroe
-        this.selectedHero = hero;
-        this.messageService.add(`HeroService:Has seleccionado el hero con id=${hero.id}`);
-    }
+    // PASO 2: al seleccionarlo coge los datos de ese heroe
+    // onSelect(hero: Hero): void {
+    //     this.selectedHero = hero;
+    //     this.messageService.add(`HeroService:Has seleccionado el hero con id=${hero.id}`);
+    // }
 
     getHeroes(): void {
         this.heroService.getHeroes()

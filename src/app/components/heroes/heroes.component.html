@@ -1,18 +1,7 @@
 <h2>Listado de Héroes</h2>
-<ul class="list-unstyled">
-<!--  le pasamos la clase dinamicamente cuando se selecciona-->
-<!--  [class.selected]="hero === selectedHero"-->
-  <li *ngFor="let hero of heroes"
-      class="item-list pointer"
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-    <div>
-      <span class="badge badge-secondary">{{hero.id}}</span>
-      {{hero.name}}
-    </div>
-  </li>
-</ul>
-<!--le pasamos el if porque en la carga no se ha
+
+<!--  **** PASO 1 ******-->
+  <!--le pasamos el if porque en la carga no se ha
 creado aun el heroe seleccionado
 Esto es para mostrar los datos de un heroe de la lista en
 la misma página
@@ -32,4 +21,28 @@ la misma página
   </div>
 </div>
 -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+  <!--  **** PASO 2 ******-->
+<!--  le pasamos la clase dinamicamente cuando se selecciona-->
+<!--<ul class="list-unstyled">-->
+<!--  [class.selected]="hero === selectedHero"-->
+<!--  <li *ngFor="let hero of heroes"-->
+<!--      class="item-list pointer"-->
+<!--      [class.selected]="hero === selectedHero"-->
+<!--      (click)="onSelect(hero)">-->
+<!--    <a routerLink="/detail/{{hero.id}}">-->
+<!--      <span class="badge badge-secondary">{{hero.id}}</span>-->
+<!--      {{hero.name}}-->
+<!--    </a>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--  **** PASO 3 ******-->
+<!--  Redirigimos al detalle-->
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
